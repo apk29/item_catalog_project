@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Build a Portfolio Project" />
+        <meta name="author" content="Perry Kong">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--<link rel="stylesheet" href="normalize-css.googlecode.com/svn/trunk/normalize.css">-->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <title>Category</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="/static/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial" />
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Catalog</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/category">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user %}
+                    <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> New Item</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    {% else %}
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <ul class="list-group">
+            <li>{% block content %}
+                {% endblock %}
+            </li>
+        </ul>
+    </body>
+</html>

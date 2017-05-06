@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import *
-from database_setup import User, Category, Item
+from database_setup import User, Category, ItemInformation
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base
 
@@ -28,7 +28,7 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # Create dummy user
-User1 = User(name="Geoge t Monkey", email="theMoney@madeupmonkey.com",
+User1 = User(name="George t Monkey", email="theMoney@madeupmonkey.com",
              picture='https://pbs.twimg.com/profile_images/2671170543/18debd694829ed78203a5a36dd364160_400x400.png')
 session.add(User1)
 session.commit()
@@ -40,64 +40,129 @@ category1 = Category(user_id=1, name="Watches")
 session.add(category1)
 session.commit()
 
-item2 = Item(user_id=1, name="Casio", description="chronograph",
-                     price="$29.99", category=category1)
+item2 = ItemInformation(user_id=1, name="Casio", description="chronograph",
+                     price="$29.99", make="japanese", category=category1)
 
 session.add(item2)
 session.commit()
 
-item3 = Item(user_id=1, name="Casio", description="G-shock",
-                     price="$39.99", category=category1)
+item3 = ItemInformation(user_id=1, name="Timex", description="Expedition Rugged",
+                     price="$39.99",  make="American", category=category1)
 
 session.add(item3)
 session.commit()
 
-item4 = Item(user_id=1, name="Casio", description="Android",
-                     price="$139.99", category=category1)
+item4 = ItemInformation(user_id=1, name="Gear3", description="Android",
+                     price="$239.99", make="South Korea", category=category1)
 
 session.add(item4)
 session.commit()
 
-item5 = Item(user_id=1, name="Casio", description="Apple",
-                     price="$239.99", category=category1)
+item5 = ItemInformation(user_id=1, name="Apple Watch", description="Apple OS",
+                     price="$239.99", make="US", category=category1)
 
 session.add(item5)
 session.commit()
 
 #Items for bikes
 
-category2 = Category(user_id=1, name="Bikes")
+category2 = Category(user_id=1, name="Bicycles")
 session.add(item2)
 session.commit()
 
-item1 = Item(user_id=1, name="Bikes", description="Moutain",
-                     price="$577.99", category=category2)
+item1 = ItemInformation(user_id=1, name="Liv Lust Advanced 1", description="Moutain",
+                     price="$577.99", make="US", category=category2)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Bikes", description="Road",
-                     price="$5277.99", category=category2)
+item2 = ItemInformation(user_id=1, name="Corima", description="Road",
+                     price="$5277.99", make="French", category=category2)
 
 session.add(item2)
 session.commit()
 
-item3 = Item(user_id=1, name="Bikes", description="Hyrbrid",
-                     price="$5277.99", category=category2)
+item3 = ItemInformation(user_id=1, name="Cannondale Quick 3", description="Hyrbrid",
+                     price="$5277.99", make="UK", category=category2)
 
 session.add(item3)
 session.commit()
 
-item4 = Item(user_id=1, name="Bikes", description="Standard",
-                     price="$5277.99", category=category2)
+item4 = ItemInformation(user_id=1, name="Brennabor ", description="Standard",
+                     price="$5277.99", make="Germany", category=category2)
 
 session.add(item4)
 session.commit()
 
-item5 = Item(user_id=1, name="Bikes", description="Motorized",
-                     price="$5277.99", category=category2)
+item5 = ItemInformation(user_id=1, name="Brodie Bicycles ", description="Motorized",
+                     price="$5277.99", make="Canada", category=category2)
 
 session.add(item5)
 session.commit()
 
-print "added menu items!"
+# Items for Cars
+category3 = Category(user_id=1, name="Cars")
+
+session.add(category1)
+session.commit()
+
+item2 = ItemInformation(user_id=1, name="Corolla", description="Passenger Car",
+                     price="$18000.00", make="Japanese", category=category3)
+
+session.add(item2)
+session.commit()
+
+item3 = ItemInformation(user_id=1, name="Tacoma", description="Medium Truck",
+                     price="$30000.00",  make="Japanese", category=category3)
+
+session.add(item3)
+session.commit()
+
+item4 = ItemInformation(user_id=1, name="F-150", description="Full Sized Truck",
+                     price="$23999.99", make="US", category=category3)
+
+session.add(item4)
+session.commit()
+
+item5 = ItemInformation(user_id=1, name="FRS", description="Sports Car",
+                     price="$24999.99", make="Japanese", category=category3)
+
+session.add(item5)
+session.commit()
+
+#Items for 
+
+category4 = Category(user_id=1, name="Beer")
+session.add(item2)
+session.commit()
+
+item1 = ItemInformation(user_id=1, name="Guiness", description="Stout Beer",
+                     price="$7.99", make="Irish", category=category4)
+
+session.add(item1)
+session.commit()
+
+item2 = ItemInformation(user_id=1, name="Heineken", description="Lager Beer",
+                     price="$5.99", make="Dutch", category=category4)
+
+session.add(item2)
+session.commit()
+
+item3 = ItemInformation(user_id=1, name="India Pale Ale", description="IPA Beer",
+                     price="$8.99", make="US", category=category4)
+
+session.add(item3)
+session.commit()
+
+item4 = ItemInformation(user_id=1, name="Corona", description="Lager",
+                     price="$6.99", make="Mexican", category=category4)
+
+session.add(item4)
+session.commit()
+
+item5 = ItemInformation(user_id=1, name="Newcastle", description="Brown Ale",
+                     price="$7.99", make="US", category=category4)
+
+session.add(item5)
+session.commit()
+print "added items!"

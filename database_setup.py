@@ -30,13 +30,14 @@ class Category(Base):
             'id': self.id,
         }
 
-class Item(Base):
-    __tablename__ = "item"
+class ItemInformation(Base):
+    __tablename__ = "item_information"
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
     description = Column(String(1000))
-    price = Column(String(15))
+    price = Column(String(8))
+    make = Column(String(250))
     category = relationship(Category)
     category_id = Column(Integer, ForeignKey('category.id'))
     user = relationship(User)
