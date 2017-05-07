@@ -1,0 +1,19 @@
+{% extends "baseTemplate.html" %}
+{% block content %}
+   
+   <body>
+      <div class="container-fluid">
+      <h1> New Category </h1>
+      <form method = 'POST'>
+      <!--This link to the newRestaurant() function.-->
+      <p>Name:</p>
+      
+      <input type='text' size='30' name='name' placeholder="Enter Name of New Category">
+      <input type='submit' value='Create'>
+      <br><br>
+      </form>
+      <a href = '{{url_for('showCategories') }}'>Cancel</a>
+      </div>
+   </body>
+   
+{% endblock %}

@@ -1,0 +1,12 @@
+User = User
+user = user
+Restaurant = Category
+restaurant = category
+MenuItem = ItemInformation
+menu_item = item_information
+deleteMenuItem.html = deleteItemIt
+showMenu = showItem
+course = make
+menu = item
+newmenuitem.html = iteminformation.html
+

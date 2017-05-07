@@ -8,7 +8,9 @@
 	<div class="row banner menu">
 		<div class="col-md-11 col-md-offset-1 padding-none">
 			<h1>{{ category.name }}
-			
+			<figure class="creator">
+				
+				
 			</figure>
 			</h1>
 
@@ -38,9 +40,9 @@
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-3">
-				<h2>Appetizers</h2>
+				<h2>Japanese</h2>
 					{% for i in items %}
-						{% if i.course == 'Appetizer' %}
+						{% if i.make == 'Japanese' %}
 							<div class="menu-item">
 								<h3>{{i.name}}</h3>
 								<p>{{i.description}}</p>
@@ -51,9 +53,9 @@
 					{% endfor %}
 			</div>
 			<div class="col-md-4">			
-				<h2>Entrees</h2>
+				<h2>US</h2>
 					{% for i in items %}
-						{% if i.course == 'Entree' %}
+						{% if i.make == 'US' %}
 						<div class="menu-item">
 							<h3>{{i.name}}</h3>
 							<p>{{i.description}}</p>
@@ -64,9 +66,9 @@
 					{% endfor %}
 			</div>
 			<div class="col-md-3">
-				<h2>Desserts</h2>
+				<h2>UK</h2>
 					{% for i in items %}
-						{% if i.course == 'Dessert' %}
+						{% if i.make == 'UK' %}
 						<div class="menu-item">
 							<h3>{{i.name}}</h3>
 							<p>{{i.description}}</p>
@@ -75,9 +77,9 @@
 						</div>
 						{% endif %}
 					{% endfor %}
-				<h2>Beverages</h2>
+				<h2>Germany</h2>
 					{% for i in items %}
-						{% if i.course == 'Beverage' %}
+						{% if i.make == 'Germany' %}
 						<div class="menu-item">
 							<h3>{{i.name}}</h3>
 							<p>{{i.description}}</p>

@@ -41,19 +41,19 @@ session.add(category1)
 session.commit()
 
 item2 = ItemInformation(user_id=1, name="Casio", description="chronograph",
-                     price="$29.99", make="japanese", category=category1)
+                     price="$29.99", make="Japanese", category=category1)
 
 session.add(item2)
 session.commit()
 
 item3 = ItemInformation(user_id=1, name="Timex", description="Expedition Rugged",
-                     price="$39.99",  make="American", category=category1)
+                     price="$39.99",  make="US", category=category1)
 
 session.add(item3)
 session.commit()
 
 item4 = ItemInformation(user_id=1, name="Gear3", description="Android",
-                     price="$239.99", make="South Korea", category=category1)
+                     price="$239.99", make="Japanese", category=category1)
 
 session.add(item4)
 session.commit()
@@ -77,7 +77,7 @@ session.add(item1)
 session.commit()
 
 item2 = ItemInformation(user_id=1, name="Corima", description="Road",
-                     price="$5277.99", make="French", category=category2)
+                     price="$5277.99", make="US", category=category2)
 
 session.add(item2)
 session.commit()
@@ -95,7 +95,7 @@ session.add(item4)
 session.commit()
 
 item5 = ItemInformation(user_id=1, name="Brodie Bicycles ", description="Motorized",
-                     price="$5277.99", make="Canada", category=category2)
+                     price="$5277.99", make="US", category=category2)
 
 session.add(item5)
 session.commit()
@@ -130,38 +130,6 @@ item5 = ItemInformation(user_id=1, name="FRS", description="Sports Car",
 session.add(item5)
 session.commit()
 
-#Items for 
-
-category4 = Category(user_id=1, name="Beer")
-session.add(item2)
-session.commit()
-
-item1 = ItemInformation(user_id=1, name="Guiness", description="Stout Beer",
-                     price="$7.99", make="Irish", category=category4)
-
-session.add(item1)
-session.commit()
-
-item2 = ItemInformation(user_id=1, name="Heineken", description="Lager Beer",
-                     price="$5.99", make="Dutch", category=category4)
-
-session.add(item2)
-session.commit()
-
-item3 = ItemInformation(user_id=1, name="India Pale Ale", description="IPA Beer",
-                     price="$8.99", make="US", category=category4)
-
-session.add(item3)
-session.commit()
-
-item4 = ItemInformation(user_id=1, name="Corona", description="Lager",
-                     price="$6.99", make="Mexican", category=category4)
-
-session.add(item4)
-session.commit()
-
-item5 = ItemInformation(user_id=1, name="Newcastle", description="Brown Ale",
-                     price="$7.99", make="US", category=category4)
 
 session.add(item5)
 session.commit()
