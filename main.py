@@ -10,7 +10,7 @@ from oauth2client.client import FlowExchangeError
 import httplib2
 import json
 from flask import make_response
-# import requests
+import requests
 
 app = Flask(__name__)
 
@@ -270,10 +270,10 @@ def categorysJSON():
 @app.route('/category/')
 def showCategories():
 	categories = session.query(Category).order_by(asc(Category.name))
-	# if 'username' not in login_session:
-	# 	return render_template('publiccategories.html', categories=categories)
-	# else:
-	return render_template('categories.html', categories=categories)
+	if 'username' not in login_session:
+		return render_template('publiccategories.html', categories=categories)
+	else:
+		return render_template('categories.html', categories=categories)
 
 #Creat new category
 @app.route('/category/new/', methods=['GET', 'POST'])
@@ -304,7 +304,7 @@ def editCategory(category_id):
 		if request.form['name']:
 			editedCategory.name = request.form['name']
 			flash('Category Successfully Edited %s' % editedCategory.name)
-			return redirect(url_for('showCategorys'))
+			return redirect(url_for('showCategories'))
 	else:
 		return render_template('editCategory.html', category=editedCategory)
 
@@ -312,15 +312,15 @@ def editCategory(category_id):
 
 #Delete Category
 @app.route('/category/<int:category_id>/delete/', methods=['GET', 'POST'])
-def deletecategory(category_id):
+def deleteCategory(category_id):
 	category = session.query(Category).filter_by(id=category_id).one()
 	creator = getUserInfo(category.user_id)
 	items = session.query(ItemInformation).filter_by(
 		category_id=category_id).all()
-	if 'username' not in login_session or creator.id != login_session['user_id']:
-		return render_template('publiciteminformation.html', items=items, category=category, creator=creator)
-	else:
-		return render_template('item.html', items=items, category=category, creator=creator)
+	# if 'username' not in login_session or creator.id != login_session['user_id']:
+	# 	return render_template('publiciteminformation.html', items=items, category=category, creator=creator)
+	# else:
+	return render_template('iteminformation.html', items=items, category=category, creator=creator)
 
 
 #Show Items
@@ -331,10 +331,10 @@ def showItem(category_id):
 	creator = getUserInfo(category.user_id)
 	items = session.query(ItemInformation).filter_by(
 		category_id=category_id).all()
-	# if 'username' not in login_session or creator.id != login_session['user_id']:
-	# 	return render_template('publiciteminformation.html', items=items, category=category)
-	# else:
-	return render_template('iteminformation.html', items=items, category=category, creator=creator)
+	if 'username' not in login_session or creator.id != login_session['user_id']:
+		return render_template('publiciteminformation.html', items=items, category=category)
+	else:
+		return render_template('iteminformation.html', items=items, category=category, creator=creator)
 
 
 #Create New Items
