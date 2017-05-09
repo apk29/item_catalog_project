@@ -23,8 +23,8 @@
                     <li class="active"><a href="/category">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {% if user %}
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    {% if 'username' in session %}
+                    <li><a href="{{url_for('disconnect')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     {% else %}
                     <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
                     <li><a href="{{url_for('showLogin')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -32,10 +32,15 @@
                 </ul>
             </div>
         </nav>
+        
+
         <ul class="list-group">
+            
+            <div class="container"
             <li>{% block content %}
                 {% endblock %}
             </li>
+            </div>
         </ul>
     </body>
 </html>

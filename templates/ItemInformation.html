@@ -57,13 +57,13 @@
 			<div class="col-md-3">
 				<h2>Japaneses</h2>
 					{% for i in items %}
-						{% if i.course == 'Japanese' %}
+						{% if i.make == 'Japanese' %}
 							<div class="item-item">
 								<h3>{{i.name}}</h3>
 								<p>{{i.description}}</p>
 								<p class="item-price">{{i.price}}</p>
-								<a href='{{url_for('editItem', category_id = category.id, item_id=i.id ) }}'>Edit</a> | 
-								<a href='{{url_for('deleteItemItem', category_id = category.id, item_id=i.id ) }}'>Delete</a>
+								<a href='{{url_for('editItemInformation', category_id = category.id, item_id=i.id ) }}'>Edit</a> | 
+								<a href='{{url_for('deleteItemInformation', category_id = category.id, item_id=i.id ) }}'>Delete</a>
 							</div>
 						{% endif %}
 					{% endfor %}
@@ -71,13 +71,13 @@
 			<div class="col-md-4">			
 				<h2>US</h2>
 					{% for i in items %}
-						{% if i.course == 'US' %}
+						{% if i.make == 'US' %}
 						<div class="item-item">
 							<h3>{{i.name}}</h3>
 							<p>{{i.description}}</p>
 							<p class="item-price">{{i.price}}</p>
-							<a href='{{url_for('editItem', category_id = category.id, item_id=i.id ) }}'>Edit</a> | 
-							<a href='{{url_for('deleteItemItem', category_id = category.id, item_id=i.id ) }}'>Delete</a>
+							<a href='{{url_for('editItemInformation', category_id = category.id, item_id=i.id) }}'>Edit</a> | 
+							<a href='{{url_for('deleteItemInformation', category_id = category.id, item_id=i.id ) }}'>Delete</a>
 						</div>
 						{% endif %}
 					{% endfor %}
@@ -85,25 +85,25 @@
 			<div class="col-md-3">
 				<h2>UK</h2>
 					{% for i in items %}
-						{% if i.course == 'UK' %}
+						{% if i.make == 'UK' %}
 						<div class="item-item">
 							<h3>{{i.name}}</h3>
 							<p>{{i.description}}</p>
 							<p class="item-price">{{i.price}}</p>
-							<a href='{{url_for('editItem', category_id = category.id, item_id=i.id ) }}'>Edit</a> | 
-							<a href='{{url_for('deleteItem', category_id = category.id, item_id=i.id ) }}'>Delete</a>
+							<a href='{{url_for('editItemInformation', category_id = category.id, item_id=i.id ) }}'>Edit</a> | 
+							<a href='{{url_for('deleteItemInformation', category_id = category.id, item_id=i.id ) }}'>Delete</a>
 						</div>
 						{% endif %}
 					{% endfor %}
 				<h2>Germany</h2>
 					{% for i in items %}
-						{% if i.course == 'Germany' %}
+						{% if i.make == 'Germany' %}
 						<div class="item-item">
 							<h3>{{i.name}}</h3>
 							<p>{{i.description}}</p>
 							<p class="item-price">{{i.price}}</p>
-							<a href='{{url_for('editItem', category_id = category.id, Item_id=i.id ) }}'>Edit</a> | 
-							<a href='{{url_for('deleteItem', category_id = category.id, Item_id=i.id ) }}'>Delete</a>
+							<a href='{{url_for('editItemInformation', category_id = category.id, item_id=i.id ) }}'>Edit</a> | 
+							<a href='{{url_for('deleteItemInformation', category_id = category.id, item_id=i.id ) }}'>Delete</a>
 						</div>
 						{% endif %}
 					{% endfor %}
