@@ -254,16 +254,21 @@ def gdisconnect():
 # JSON APIs to view Category Information
 @app.route('/category/<int:category_id>/item/JSON')
 def categoryItemJSON(category_id):
-	return "Category JSON Info"
+	category = session.query(Category).filter_by(id=category_id).one()
+	items = session.query(ItemInformation).filter_by(
+		category_id=category_id).all()
+	return jsonify(ItemInformations=[i.serialize for i in items])
 
-
+# JSON APIs to view Category Information
 @app.route('/category/<int:category_id>/item/<int:item_id>/JSON')
 def ItemJSON(category_id, item_id):
-	return "Category Category Item JSON"
+	item_information = session.query(ItemInformation).filter_by(id=item_id).one()
+	return jsonify(ItemInformations=item_information.serialize)
 
 @app.route('/category/JSON')
 def categorysJSON():
-	return "Category JSON"
+	categories = session.query(Category).all()
+	return jsonify(categories=[c.serialize for c in categories])
 
 # Show all category
 @app.route('/')

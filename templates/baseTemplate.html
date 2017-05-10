@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!--<link rel="stylesheet" href="normalize-css.googlecode.com/svn/trunk/normalize.css">-->
         <title>Category</title>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,16 +25,12 @@
                     {% if 'username' in session %}
                     <li><a href="{{url_for('disconnect')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     {% else %}
-                    <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
                     <li><a href="{{url_for('showLogin')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
-        
-
         <ul class="list-group">
-            
             <div class="container"
             <li>{% block content %}
                 {% endblock %}

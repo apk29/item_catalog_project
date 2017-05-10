@@ -1,17 +1,13 @@
 {% extends "baseTemplate.html" %}
 {% block content %}
-
-
 <h2> Are you sure you want to delete {{category.name}}? </h2>
-
-  <div class="container-fluid">
-<br>
-<form action="{{ url_for('deleteCategory',category_id = category.id)}}" method = 'post'>
-<input type='submit', value = 'Delete'>
-<br>
-<br>
-<button><a href = '{{url_for('showCategories') }}'>Cancel</a></button>
-</form>
+<div class="container-fluid">
+    <br>
+    <form action="{{ url_for('deleteCategory',category_id = category.id)}}" method = 'post'>
+        <input type='submit', value = 'Delete'>
+        <br>
+        <br>
+        <button><a href = '{{url_for('showCategories') }}'>Cancel</a></button>
+    </form>
 </div>
-
 {% endblock %}
