@@ -450,7 +450,7 @@ def deleteItemInformation(category_id, item_id):
         return "<script>function myFunction()\
         {alert('You are not authorized to delete menu items to this category.\
         Please create your own category in order to delete items.');}</script>\
-        <body onload='myFunction()''>"
+        <body onload='myFunction()'>"
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
