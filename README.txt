@@ -3,6 +3,9 @@
 Udacity Fullstack Nanodegree
 Project 3: Item Catalog
 by Perry Kong..
+apk29@hotmail.com
+2017, May 10
+Version 1
 
 This is an application that implements a web app that provides a list of items within various categories. It incorporates the concepts 
 CRUD (Create, Read, Update, & Delete) operations, registration and authentication through Google & Facebook.
@@ -24,7 +27,7 @@ Follow the following direction:
 	vagrant ssh
 	cd /vagrant
 	python database_setup.py
-	python model_catalog.py
+	python model_catalog.py (database information)
 	python main.py
 	
 5. Open your favorite web browser and enter the following address:
