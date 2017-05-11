@@ -55,7 +55,7 @@ def fbconnect():
         'web']['app_id']
     app_secret = json.loads(
         open('fb_client_secrets.json', 'r').read())['web']['app_secret']
-    url = 'https://graph.facebook.com/v2.9/oauth/access_token?grant_type=fb_exchange_token&client_id=%s&client_secret=%s&fb_exchange_token=%s' % (app_id, app_secret, access_token)
+    url = 'https://graph.facebook.com/v2.9/oauth/access_token?grant_type=fb_exchange_token&client_id=%s&client_secret=%s&fb_exchange_token=%s' % (app_id, app_secret, access_token)  # noqa
     h = httplib2.Http()
     result = h.request(url, 'GET')[1]
 
@@ -85,7 +85,7 @@ def fbconnect():
     login_session['access_token'] = stored_token
 
     # Get user picture
-    url = 'https://graph.facebook.com/v2.4/me/picture?%s&redirect=0&height=200&width=200' % token
+    url = 'https://graph.facebook.com/v2.4/me/picture?%s&redirect=0&height=200&width=200' % token  # noqa
     h = httplib2.Http()
     result = h.request(url, 'GET')[1]
     data = json.loads(result)
@@ -105,7 +105,7 @@ def fbconnect():
     output += '!</h1>'
     output += '<img src="'
     output += login_session['picture']
-    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '  # noqa
 
     flash("Now logged in as %s" % login_session['username'])
     return output
@@ -116,7 +116,7 @@ def fbdisconnect():
     facebook_id = login_session['facebook_id']
     # The access token must me included to successfully logout
     access_token = login_session['access_token']
-    url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (facebook_id, access_token)
+    url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (facebook_id, access_token)  # noqa
     h = httplib2.Http()
     result = h.request(url, 'DELETE')[1]
     return "you have been logged out"
@@ -208,7 +208,7 @@ def gconnect():
     output += '!</h1>'
     output += '<img src="'
     output += login_session['picture']
-    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '  # noqa
     flash("you are now logged in as %s" % login_session['username'])
     print "done!"
     return output
@@ -275,8 +275,7 @@ def categoryItemJSON(category_id):
 
 @app.route('/category/<int:category_id>/item/<int:item_id>/JSON')
 def ItemJSON(category_id, item_id):
-    item_information = session.query(ItemInformation).filter_by\
-                       (id=item_id).one()
+    item_information = session.query(ItemInformation).filter_by(id=item_id).one()  # noqa
     return jsonify(ItemInformations=item_information.serialize)
 
 
@@ -375,7 +374,7 @@ def showItem(category_id):
     items = session.query(ItemInformation).filter_by(
         category_id=category_id).all()
     if 'username' not in login_session or\
-    creator.id != login_session['user_id']:
+       creator.id != login_session['user_id']:
         return render_template('publiciteminformation.html', items=items,
                                category=category, creator=creator)
     else:
