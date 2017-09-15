@@ -7,7 +7,7 @@ apk29@hotmail.com
 2017, May 10
 Version 1
 
-This is an application that implements a web app that provides a list of items within various categories. It incorporates the concepts 
+This web app provides a list of items within various categories. It incorporates the concepts 
 CRUD (Create, Read, Update, & Delete) operations, registration and authentication through Google & Facebook.
 
 To use this program you must have the follwoing programs installed:
